@@ -1,10 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace _7days2mod_core
+﻿namespace _7days2mod_core
 {
     public class GitHubOAuthOptions
     {

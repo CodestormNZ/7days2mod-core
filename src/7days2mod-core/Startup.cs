@@ -2,17 +2,9 @@
 using _7days2mod_core.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Security.Cryptography;
-using System.Text.Encodings.Web;
 
 namespace _7days2mod_core
 {
@@ -49,7 +41,7 @@ namespace _7days2mod_core
             services.AddMvc();
             services.AddSession();
 
-            // Setup options with DI
+            // Add Options services
             services.AddOptions();
 
             /*
