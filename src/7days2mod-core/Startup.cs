@@ -52,16 +52,12 @@ namespace _7days2mod_core
             // Setup options with DI
             services.AddOptions();
 
+            /*
             services.Configure<GitHubOAuthOptions>(options =>
             {
-                options.authEndpoint = "https://github.com/login/oauth/authorize";
-                options.verifyEndpoint = "https://github.com/login/oauth/access_token";
-                options.authRoute = "/Authenticate";
-                options.verifyRoute = "/Authenticate/Verify";
-                options.baseUrl = "http://localhost:2500";
-                options.scope = "user%20public_repo";
-                options.redirectURI = "/";
+                options.baseUrl = null;
             });
+            */
 
             // Add application services
             services.AddSingleton<IGitHubAPIService, GitHubAPIService>();

@@ -44,11 +44,14 @@ namespace _7days2mod_core
                 context.Session.Set("CSRF:State", modulus);
 
                 //create request string
-                string baseUrl = _options.baseUrl;
+                if (string.IsNullOrEmpty(_options.baseUrl))
+                {
+                    _options.baseUrl = context.Request.Scheme + "://" + context.Request.Host.Value;
+                }
                 var requestURL = _options.authEndpoint
                     + "?client_id=" + _appSettings.GitHubClientId
                     // TODO: add return url to redirect to current page after auth
-                    + "&redirect_uri=" + baseUrl + _options.verifyRoute + "/"
+                    + "&redirect_uri=" + _options.baseUrl + _options.verifyRoute + "/"
                     + "&state=" + stateKey
                     + "&scope=" + _options.scope;
 
@@ -96,7 +99,7 @@ namespace _7days2mod_core
                             var responseString = await response.Content.ReadAsStringAsync();
                             dynamic responseData = JObject.Parse(responseString);
 
-                            if (responseData.error != "")
+                            if (!String.IsNullOrEmpty(responseData.error))
                             {
                                 //response error code detected
                                 //TODO: Throw exception, log error
