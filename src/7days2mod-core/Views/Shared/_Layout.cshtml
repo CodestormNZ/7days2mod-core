@@ -26,14 +26,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">_7days2mod_core</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">7days2mod</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a asp-area="" asp-controller="Authenticate" >Authenticate</a></li>
+                    @await Component.InvokeAsync("AuthNav")
                 </ul>
             </div>
         </div>
