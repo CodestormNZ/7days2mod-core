@@ -35,7 +35,7 @@ namespace _7days2mod_core
         public async Task Invoke(HttpContext context)
         {
             //authentication requested
-            if (context.Request.Path.Value == _options.authRoute)
+            if (context.Request.Path.StartsWithSegments(_options.authRoute))
             {
                 //create CSRF state key
                 var rsa = new RSACryptoServiceProvider(512);
@@ -116,6 +116,13 @@ namespace _7days2mod_core
                     }
                 }
                 //post auth redirect endpoint
+                context.Response.Redirect(_options.redirectURI);
+            } else if (context.Request.Path.StartsWithSegments(_options.logoutRoute))
+            {
+                //clear token and scope from session
+                context.Session.Remove("access_token");
+                context.Session.Remove("scope");
+                //post logout redirect
                 context.Response.Redirect(_options.redirectURI);
             }
             else
