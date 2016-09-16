@@ -1,8 +1,10 @@
-﻿namespace _7days2mod_core.Services
+﻿using System.Threading.Tasks;
+
+namespace _7days2mod_core.Services
 {
     public interface IGitHubAPIService
     {
-        string access_token { get; set; }
+        Task<dynamic> requestAsync(string mode = "GET");
 
     }
 }

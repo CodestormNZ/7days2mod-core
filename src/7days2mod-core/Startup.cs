@@ -2,8 +2,10 @@
 using _7days2mod_core.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 
 namespace _7days2mod_core
@@ -39,6 +41,7 @@ namespace _7days2mod_core
 
             // Add framework services.
             services.AddMvc();
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSession();
 
             // Add Options services
