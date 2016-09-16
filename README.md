@@ -1,5 +1,13 @@
 # 7days2mod-core
 
+## Installation
+
+Currently only the source code is available. To install and run you will need Visual Studio. 
+
+[Comunity Edition](https://www.visualstudio.com/products/visual-studio-community-vs)
+
+Once you have that installed you can open this project and run it to create a local instance server (You can get the repo directly into visual studio from the download button, select open in visual studio). For non localhost access you will need to publish to a server.
+
 ## Setup 
 
 Create a config file (or set the values AppSettings:GitHubClientId and AppSettings:GitHubClientSecret as environment variables on the server)
