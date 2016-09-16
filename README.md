@@ -28,3 +28,20 @@ You can also set these values in the __appsettings.json__ in the AppSettings sec
 
 To obtain these values visit https://github.com/settings/applications/new and put the base url (where the app is served from) as both the Homepage URL and Authorization callback URL.
 
+## Features
+
+### GitHub Authorization Middleware using OAuth2
+
+  In [StartUp.cs](https://github.com/CodestormNZ/7days2mod-core/blob/master/src/7days2mod-core/Startup.cs) you can change the default settings. Uncomment the `Configure<GitHubAuthOptions>` section and add your overrides. [Middleware/GitHubOAuthOptions.cs](https://github.com/CodestormNZ/7days2mod-core/blob/master/src/7days2mod-core/Middleware/GitHubOAuthOptions.cs) lists the default values.
+  ```
+    /*
+    services.Configure<GitHubOAuthOptions>(options =>
+    {
+        options.baseUrl = null;
+    });
+    */
+  ```
+
+### GitHub API Service
+
+more to come...
